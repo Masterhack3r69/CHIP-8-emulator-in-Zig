@@ -3,6 +3,7 @@
 A CHIP-8 emulator written in Zig with SDL2.
 
 ![CHIP-8 Test](https://img.shields.io/badge/CHIP--8-Emulator-blue)
+😂![alt text](roms/image.png)
 
 ## Features
 
