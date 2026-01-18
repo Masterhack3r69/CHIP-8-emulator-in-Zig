@@ -1,0 +1,20 @@
+.{
+    .name = .console_emulator,
+    .version = "0.0.1",
+    .fingerprint = 0xc99a3afe128705fc,
+    .dependencies = .{
+        .sdl2_prebuilt_x86_64_windows_gnu = .{
+            .url = "git+https://github.com/zig-gamedev/sdl2-prebuilt-x86_64-windows-gnu.git#8de1512cedfa1fb3ab17ecf295af8cabd7f231f1",
+            .hash = "sdl2_prebuilt_x86_64_windows_gnu-0.2.0-dev-HPeIhv2VaQBOWF4Fjtr7Vb9bA852pUtwUuQKdvNvkA98",
+        },
+        .zsdl = .{
+            .url = "git+https://github.com/zig-gamedev/zsdl.git#537de39b5719f39dcd612df2923607f3aedaf147",
+            .hash = "zsdl-0.4.0-dev-rFpjEzgIXwBdDmlda0YnQPRVApMc1YEgbyzLWuT9GupM",
+        },
+    },
+    .paths = .{
+        "build.zig",
+        "build.zig.zon",
+        "src",
+    },
+}
