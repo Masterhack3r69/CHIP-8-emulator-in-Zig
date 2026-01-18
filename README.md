@@ -1,6 +1,15 @@
 # CHIP-8 Emulator
 
-A cycle-accurate CHIP-8 emulator written in Zig with SDL3 for graphics and input.
+A CHIP-8 emulator written in Zig with SDL2.
+
+![CHIP-8 Test](https://img.shields.io/badge/CHIP--8-Emulator-blue)
+
+## Features
+
+- Full CPU emulation (all 35 opcodes)
+- 64×32 display at 10x scale
+- 16-key hex keypad input
+- Delay and sound timers
 
 ## Building
 
@@ -11,41 +20,47 @@ zig build
 ## Running
 
 ```bash
-zig build run
-# Or directly:
-./zig-out/bin/console-emulator.exe
+zig build run -- path/to/rom.ch8
 ```
+
+Or directly:
+
+```bash
+./zig-out/bin/console-emulator path/to/rom.ch8
+```
+
+## Controls
+
+| Keyboard | CHIP-8  |
+| -------- | ------- |
+| 1 2 3 4  | 1 2 3 C |
+| Q W E R  | 4 5 6 D |
+| A S D F  | 7 8 9 E |
+| Z X C V  | A 0 B F |
+| ESC      | Quit    |
+
+## Test ROMs Included
+
+- `roms/test_opcode.ch8` - Opcode test
+- `roms/pong.ch8` - Classic Pong game
 
 ## Architecture
 
 ```
-CPU → Bus → RAM / ROM / IO
+CPU → Bus → Memory (4KB)
+ ↓
+Display (64×32)
+ ↓
+SDL2 Renderer
 ```
 
-All memory access goes through the Bus - no direct CPU access to memory.
+All memory access goes through the Bus abstraction.
 
-## Modules
+## Requirements
 
-| Module        | Purpose                   |
-| ------------- | ------------------------- |
-| `cpu.zig`     | Fetch-decode-execute loop |
-| `bus.zig`     | Memory address routing    |
-| `memory.zig`  | 4KB RAM/ROM storage       |
-| `display.zig` | 64×32 framebuffer         |
-| `input.zig`   | 16-key hex keypad         |
-| `timer.zig`   | Delay and sound timers    |
-| `rom.zig`     | ROM file loading          |
+- Zig 0.15+
+- SDL2 (auto-fetched via zig build)
 
-## Controls
+## License
 
-| Key  | CHIP-8 Key    |
-| ---- | ------------- |
-| 1-4  | 1-C (top row) |
-| QWER | 4-D           |
-| ASDF | 7-E           |
-| ZXCV | A-F           |
-| ESC  | Quit          |
-
-## Status
-
-🚧 Phase 0 - Project setup complete
+MIT
