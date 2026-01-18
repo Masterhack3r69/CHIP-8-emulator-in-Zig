@@ -10,7 +10,6 @@ A CHIP-8 emulator written in Zig with SDL2.
 - Full CPU emulation (all 35 opcodes)
 - 64×32 display at 10x scale
 - 16-key hex keypad input
-- Delay and sound timers
 
 ## Building
 
